@@ -1,4 +1,4 @@
-<img src="./src/icon.svg " width="100" /><br>
+<img src="./src/icon.sv " width="100" /><br>
 # Experimental Text Fix <br>
 Adds experimental text rendering fixes and features <br>
 <br>
