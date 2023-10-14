@@ -310,7 +310,7 @@ P_C.Instance = getInstanceJs(
               this._MeasureText(lastfrag).width + this._MeasureText(frag).width;
             let addTogether = this._MeasureText(
               C3.New(C3.TextFragment, {
-                chArr: [...lastfrag._chArr, ...frag._chArr],
+                chArr: [...(lastfrag._chArr || []), ...(frag._chArr || [])],
                 styles: frag.styles,
               })
             ).width;
