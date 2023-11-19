@@ -951,7 +951,13 @@ P_C.Instance = getInstanceJs(
           const tryLineWidth =
             currentLineWidth + tryMetrics.width + kerningOffset;
           if (tryLineWidth >= wrapWidth) {
-            if (currentLine.length > 0)
+            if (currentLine.length > 0) {
+              const metrics = this._MeasureLine(currentLine, measureFunc);
+              currentLineWidth = metrics.width;
+              currentLineHeight = metrics.height;
+              currentLineFbbAscent = metrics.fontBoundingBoxAscent;
+              currentLineFbbDescent = metrics.fontBoundingBoxDescent;
+              currentLineTopToAlphabetic = metrics.topToAlphabeticDistance;
               this._AddLine(
                 currentLine,
                 currentLineWidth,
@@ -960,6 +966,7 @@ P_C.Instance = getInstanceJs(
                 currentLineFbbDescent,
                 currentLineTopToAlphabetic
               );
+            }
             currentLine = [];
             if (
               curWord[0].IsText() &&
@@ -996,7 +1003,13 @@ P_C.Instance = getInstanceJs(
               currentLineFbbAscent - currentLineFbbDescent;
           }
         }
-        if (currentLine.length > 0)
+        if (currentLine.length > 0) {
+          const metrics = this._MeasureLine(currentLine, measureFunc);
+          currentLineWidth = metrics.width;
+          currentLineHeight = metrics.height;
+          currentLineFbbAscent = metrics.fontBoundingBoxAscent;
+          currentLineFbbDescent = metrics.fontBoundingBoxDescent;
+          currentLineTopToAlphabetic = metrics.topToAlphabeticDistance;
           this._AddLine(
             currentLine,
             currentLineWidth,
@@ -1005,6 +1018,7 @@ P_C.Instance = getInstanceJs(
             currentLineFbbDescent,
             currentLineTopToAlphabetic
           );
+        }
         this._TrimLinesTrailingWhitespace(measureFunc, endOfLineMargin);
       }
     };
