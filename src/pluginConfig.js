@@ -3,7 +3,7 @@ module.exports = {
   addonType: "plugin",
   id: "skymen_ExperimentalTextFix",
   name: "Experimental Text Fix",
-  version: "2.0.0.4",
+  version: "2.0.0.5",
   category:
     // "3d",
     // "data-and-storage",

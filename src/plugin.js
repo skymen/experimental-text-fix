@@ -917,6 +917,12 @@ P_C.Instance = getInstanceJs(
               currentLineFbbDescent = m.fontBoundingBoxDescent || 0;
               currentLineTopToAlphabetic = m.topToAlphabeticDistance || 0;
             }
+            const metrics = this._MeasureLine(currentLine, measureFunc);
+            currentLineWidth = metrics.width;
+            currentLineHeight = metrics.height;
+            currentLineFbbAscent = metrics.fontBoundingBoxAscent;
+            currentLineFbbDescent = metrics.fontBoundingBoxDescent;
+            currentLineTopToAlphabetic = metrics.topToAlphabeticDistance;
             this._AddLine(
               currentLine,
               currentLineWidth,
