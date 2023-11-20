@@ -916,13 +916,14 @@ P_C.Instance = getInstanceJs(
               currentLineFbbAscent = m.fontBoundingBoxAscent || 0;
               currentLineFbbDescent = m.fontBoundingBoxDescent || 0;
               currentLineTopToAlphabetic = m.topToAlphabeticDistance || 0;
+            } else {
+              const metrics = this._MeasureLine(currentLine, measureFunc);
+              currentLineWidth = metrics.width;
+              currentLineHeight = metrics.height;
+              currentLineFbbAscent = metrics.fontBoundingBoxAscent;
+              currentLineFbbDescent = metrics.fontBoundingBoxDescent;
+              currentLineTopToAlphabetic = metrics.topToAlphabeticDistance;
             }
-            const metrics = this._MeasureLine(currentLine, measureFunc);
-            currentLineWidth = metrics.width;
-            currentLineHeight = metrics.height;
-            currentLineFbbAscent = metrics.fontBoundingBoxAscent;
-            currentLineFbbDescent = metrics.fontBoundingBoxDescent;
-            currentLineTopToAlphabetic = metrics.topToAlphabeticDistance;
             this._AddLine(
               currentLine,
               currentLineWidth,
