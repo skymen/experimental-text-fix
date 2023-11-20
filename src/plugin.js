@@ -182,7 +182,7 @@ P_C.Instance = getInstanceJs(
   let oldSpritefontTextClass = self.SpriteFontText;
   let oldTextFragmentClass = C3.TextFragment;
   const kerningOffsetMap = {};
-  // const measureMap = {};
+  const measureMap = {};
   const tempFrag = C3.New(C3.TextFragment, {
     _chArr: [],
     styles: {},
@@ -276,13 +276,16 @@ P_C.Instance = getInstanceJs(
       _MeasureText(frag) {
         const text = frag.IsText() ? frag.GetCharacterArray().join("") : " ";
         const fontString = this._GetFontString(true, frag);
-        // const key = `${text}_${fontString}`;
         this._SetMeasureFontString(fontString);
         const textMetrics = this._measureContext.measureText(text);
+        // const key = `${text}_${fontString}`;
+        // let textMetrics;
         // if (measureMap[key] !== undefined) {
         //   textMetrics = measureMap[key];
         // } else {
+        //   this._SetMeasureFontString(fontString);
         //   textMetrics = this._measureContext.measureText(text);
+        //   measureMap[key] = textMetrics;
         // }
         const sizeStyle = frag.GetStyleTag("size");
         const fontSize =
