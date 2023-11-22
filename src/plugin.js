@@ -768,11 +768,11 @@ P_C.Instance = getInstanceJs(
       _skymen_CanBeKerned(frag, nextFrag) {
         if (
           !frag ||
-          frag._chArr.length === 0 ||
-          !nextFrag ||
           !frag.IsText() ||
+          !frag._chArr ||
+          !nextFrag ||
           !nextFrag.IsText() ||
-          nextFrag._chArr.length === 0
+          !nextFrag._chArr
         )
           return false;
 
